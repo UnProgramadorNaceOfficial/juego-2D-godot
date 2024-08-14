@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://hekshl8n1xin"]
+
+[ext_resource type="Script" path="res://fire.gd" id="1_56pwu"]
+[ext_resource type="Texture2D" uid="uid://b7ulpnpbw4u2f" path="res://Assets/Traps/Spikes/Idle.png" id="2_ms8sx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw7ex"]
+size = Vector2(16, 5.5)
+
+[node name="Picos" type="Area2D"]
+script = ExtResource("1_56pwu")
+
+[node name="Idle" type="Sprite2D" parent="."]
+position = Vector2(8.625, -0.75)
+scale = Vector2(1.17188, 0.96875)
+texture = ExtResource("2_ms8sx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 3.25)
+shape = SubResource("RectangleShape2D_nw7ex")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
